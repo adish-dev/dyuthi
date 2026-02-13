@@ -92,7 +92,7 @@
     <source src="song.mp3" type="audio/mpeg" />
   </audio>
 
-  <h1>Helloo Dyuthii❤️</h1>
+  <h1>Hey ❤️</h1>
   <p>I’ve been wanting to ask you something really special…</p>
 
   <button onclick="startExperience()">💖 Start the Magic</button>
@@ -107,9 +107,32 @@
     <img src="image1.jpg" alt="Memory 1" />
     <img src="image2.jpg" alt="Memory 2" />
     <img src="image3.jpg" alt="Memory 3" />
+    <img src="image4.jpg" alt="Memory 4" />
   </div>
 
   <footer>Made with ❤️ just for you</footer>
+
+  <!-- Custom Modal -->
+  <div id="customModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:2000; align-items:center; justify-content:center;">
+    <div style="background:#fff; color:#ff4d6d; padding:30px 25px; border-radius:25px; max-width:320px; width:85%; box-shadow:0 20px 40px rgba(0,0,0,0.4); text-align:center; animation: pop 0.4s ease;">
+      <h2 style="margin-top:0;">Adish says 💖</h2>
+      <p style="font-size:2.1rem;">Love you chakkareee 😘🥰</p>
+      <button onclick="closeModal()" style="margin-top:1px;">OK</button>
+    </div>
+  </div>
+
+  <style>
+    @keyframes pop {
+      0% { transform: scale(0.7); opacity:0; }
+      100% { transform: scale(1); opacity:1; }
+    }
+  </style>
+
+  <script>
+    function closeModal() {
+      document.getElementById('customModal').style.display = 'none';
+    }
+  </script>
 
   <script>
     const music = document.getElementById('bgMusic');
@@ -122,7 +145,7 @@
     }
 
     function yesClicked() {
-      alert("Lovee Youu chakkareeee😘😘");
+      document.getElementById('customModal').style.display = 'flex';
     }
 
     // No button runs away
@@ -159,4 +182,3 @@
 
 </body>
 </html>
-
