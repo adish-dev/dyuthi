@@ -27,7 +27,6 @@
       background: #fff;
       color: #ff4d6d;
       transition: transform 0.2s ease;
-      position: relative;
     }
     button:hover { transform: scale(1.1); }
 
@@ -80,6 +79,9 @@
     .gallery img:hover { transform: scale(1.05); }
 
     footer { margin: 40px 0; font-size: 0.9rem; }
+
+    /* Hidden until Start the Magic */
+    .reveal { display: none; }
   </style>
 </head>
 <body>
@@ -92,32 +94,33 @@
     <source src="song.mp3" type="audio/mpeg" />
   </audio>
 
-  <h1>Hey ❤️</h1>
+  <h1>Helloo Dyuthii ❤️</h1>
   <p>I’ve been wanting to ask you something really special…</p>
 
   <button onclick="startExperience()">💖 Start the Magic</button>
 
-  <h1>Will you be my Valentine? 💌</h1>
+  <h1 class="reveal">Will you be my Valentine Chakkaree? 💌</h1>
 
-  <button onclick="yesClicked()">YES 😍</button>
-  <button id="noBtn">No 🙈</button>
+  <div class="reveal" id="buttonWrap" style="justify-content:center; gap:20px; flex-wrap:wrap;">
+    <button onclick="yesClicked()">YES 😍</button>
+    <button id="noBtn">No 🙈</button>
+  </div>
 
-  <h2>Our Memories 📸</h2>
-  <div class="gallery">
+  <h2 class="reveal">Our Memories 📸</h2>
+  <div class="gallery reveal">
     <img src="image1.jpg" alt="Memory 1" />
     <img src="image2.jpg" alt="Memory 2" />
     <img src="image3.jpg" alt="Memory 3" />
-    <img src="image4.jpg" alt="Memory 4" />
   </div>
 
-  <footer>Made with ❤️ just for you</footer>
+  <footer class="reveal">Made with ❤️ just for you by your aachheeyy</footer>
 
   <!-- Custom Modal -->
   <div id="customModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:2000; align-items:center; justify-content:center;">
     <div style="background:#fff; color:#ff4d6d; padding:30px 25px; border-radius:25px; max-width:320px; width:85%; box-shadow:0 20px 40px rgba(0,0,0,0.4); text-align:center; animation: pop 0.4s ease;">
       <h2 style="margin-top:0;">Adish says 💖</h2>
-      <p style="font-size:2.1rem;">Love you chakkareee 😘🥰</p>
-      <button onclick="closeModal()" style="margin-top:1px;">OK</button>
+      <p style="font-size:1.1rem;">Love you chakkareee 😘🥰</p>
+      <button onclick="closeModal()" style="margin-top:15px;">OK</button>
     </div>
   </div>
 
@@ -142,6 +145,16 @@
       music.muted = false; // unmute after interaction (mobile-safe)
       music.play().catch(() => {});
       createHearts();
+
+      // Reveal everything
+      document.querySelectorAll('.reveal').forEach(el => {
+        if (el.id === 'buttonWrap') {
+          el.style.display = 'flex';
+        } else {
+          el.style.display = 'block';
+        }
+        el.style.animation = 'pop 0.5s ease';
+      });
     }
 
     function yesClicked() {
